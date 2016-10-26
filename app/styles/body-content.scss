@@ -9,10 +9,23 @@
   &-content {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 
     &__left {
+      flex-grow: 1;
       &--title {
-        font-size: 2rem;
+        font-size: 1.2rem;
+        padding-bottom: 0.8rem;
+      }
+
+      &--year {
+        padding-bottom: 0.8rem;
+      }
+
+      &--creator {
+        font-size: 1.1rem;
+        border-bottom: 0.1rem black solid;
+        margin-bottom: 1rem;
       }
 
       &--image {
@@ -21,7 +34,14 @@
     }
 
     &__right {
+      flex-grow: 1;
       padding: 1rem;
+
+      &--title {
+        font-size: 1.1rem;
+        border-bottom: 0.1rem black solid;
+        margin-bottom: 1rem;
+      }
     }
   }
 }
