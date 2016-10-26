@@ -1,0 +1,11 @@
+.nav-bar {
+  background: $c-nav-bar;
+  color: #fff;
+  padding: 1rem;
+
+  &__container {
+    max-width: 65rem;
+    margin: 0 auto;
+  }
+
+}
