@@ -8,6 +8,7 @@ const app = new Vue({
   data() {
     return {
       series: null,
+      characters: [],
     };
   },
 
@@ -21,6 +22,15 @@ const app = new Vue({
           .then((r) => r.json())
           .then((data) => {
             this.series = data.data.results[0];
+            this.searchCharacters(this.series);
+          });
+    },
+
+    searchCharacters(series) {
+      fetch(`http://gateway.marvel.com/v1/public/series/${series.id}/characters?apikey=${apiKey}`)
+          .then((r) => r.json())
+          .then((data) => {
+            this.characters = data.data.results;
           });
     },
   },
