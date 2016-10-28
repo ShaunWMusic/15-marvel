@@ -41,30 +41,13 @@
             </div>
             <h2 class="body-content__right--title">Comic</h2>
             <div class="grid">
-              <div class="grid-item">
+              <div class="grid-item" v-for="character in comics">
                 <div class="grid-item__img">
-                  <img src="http://placecage.com/100/100" alt="" class="image">
+                  <img v-bind:src="character.thumbnail.path + '.' + character.thumbnail.extension" alt="" class="image">
                 </div>
-                  <p>Red Hulk</p>
+                  <p>{{ comics.title }}</p>
               </div>
-              <div class="grid-item">
-                <div class="img">
-                  <img src="http://placecage.com/100/100" alt="" class="image">
-                </div>
-                  <p>Spider-Girl</p>
-              </div>
-              <div class="grid-item">
-                <div class="img">
-                  <img src="http://placecage.com/100/100" alt="" class="image">
-                </div>
-                  <p>Spider-Girl</p>
-              </div>
-              <div class="grid-item">
-                <div class="img">
-                  <img src="http://placecage.com/100/100" alt="" class="image">
-                </div>
-                  <p>Spiderman</p>
-              </div>
+
             </div>
             <div class="grid">
               <div class="grid-item">

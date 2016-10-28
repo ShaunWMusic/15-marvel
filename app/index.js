@@ -9,6 +9,7 @@ const app = new Vue({
     return {
       series: null,
       characters: [],
+      comics: [],
     };
   },
 
@@ -31,7 +32,18 @@ const app = new Vue({
           .then((r) => r.json())
           .then((data) => {
             this.characters = data.data.results;
+            this.searchComics(this.characters);
           });
     },
+
+    searchComics(series) {
+      fetch(`http://gateway.marvel.com/v1/public/series/${series.id}/comics?apikey=${apiKey}`)
+          .then((r) => r.json())
+          .then((data) => {
+            debugger;
+            this.comics = data.data.results;
+          });
+    },
+
   },
 });
