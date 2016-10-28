@@ -12,7 +12,7 @@ const app = new Vue({
   },
 
   mounted() {
-    this.searchSeries('Iron');
+    this.searchSeries('Spider');
   },
 
   methods: {

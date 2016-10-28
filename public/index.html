@@ -22,7 +22,7 @@
         <div class="body-content">
           <div class="body-content__left">
             <div class="body-content__left--img">
-              <img src="http://placecage.com/400/400" alt="" class="body-content__left--image">
+              <img v-bind:src="series.thumbnail.path + '.' + series.thumbnail.extension" alt="" class="body-content__left--image">
             </div>
             <h3 class="body-content__left--title">{{ series.title }}</h3>
             <h5 class="body-content__left--year">{{ series.startYear }} - {{ series.endYear }}</h5>
