@@ -12,7 +12,9 @@
     flex-wrap: wrap;
 
     &__left {
+      flex-basis: calc(100% * 1 / 4 - 2rem);
       flex-grow: 1;
+      margin: 1rem;
 
       &--title {
         font-size: 1.2rem;
@@ -35,8 +37,9 @@
     }
 
     &__right {
+      flex-basis: calc(100% * 3 / 4 - 2rem);
       flex-grow: 1;
-      padding: 1rem;
+      margin: 1rem;
 
       &--title {
         font-size: 1.1rem;
@@ -56,10 +59,12 @@
     flex-basis: calc(100% / 4 - 1rem - 1rem);
     margin: 0.5rem;
 
+    &__image--src {
+      border-radius: 0.4rem;
+      width: 100%;
+      height: 9rem;
+      object-fit: cover;
+    }
   }
 
-}
-
-.image {
-  border-radius: 0.4rem;
 }
