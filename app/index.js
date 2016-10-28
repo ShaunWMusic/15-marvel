@@ -1,34 +1,27 @@
 import 'whatwg-fetch';
 import Vue from 'vue/dist/vue';
+const apiKey = 'd95eb5768c013b90d3d198d41e5c0502';
 
 const app = new Vue({
-  el: '.app',
+  el: '.full-page',
 
   data() {
     return {
-      results: null,
+      series: null,
     };
   },
 
   mounted() {
-    fetch('http://gateway.marvel.com:80/v1/public/series/9856?apikey=d95eb5768c013b90d3d198d41e5c0502')
-        .then((r) => r.json())
-        .then((data) => {
-          this.title = data.results;
-
-          this.choosePokemon(data.results);
-        });
+    this.searchSeries('Iron');
   },
 
   methods: {
-    choosePokemon(pokemon) {
-      this.loading = true;
-      fetch(pokemon.url)
-      .then((r) => r.json())
-      .then((data) => {
-        this.loading = false;
-        this.currentSelection = data;
-      });
+    searchSeries(input) {
+      fetch(`http://gateway.marvel.com/v1/public/series?limit=1&titleStartsWith=${input}&apikey=${apiKey}`)
+          .then((r) => r.json())
+          .then((data) => {
+            this.series = data.data.results[0];
+          });
     },
   },
 });

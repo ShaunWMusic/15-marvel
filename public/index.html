@@ -13,7 +13,7 @@
     <section class="nav-bar">
       <div class="nav-bar__container">
       <div class="nav-bar__content">
-          <h1 class="title">{{ results.title }}</h1>
+          <h1 class="title">Marvel</h1>
       </div>
       </div>
     </section>
@@ -24,15 +24,10 @@
             <div class="body-content__left--img">
               <img src="http://placecage.com/400/400" alt="" class="body-content__left--image">
             </div>
-            <h3 class="body-content__left--title">Spider Girl (2010-2011)</h3>
-            <h5 class="body-content__left--year">2010-2011</h5>
+            <h3 class="body-content__left--title">{{ series.title }}</h3>
+            <h5 class="body-content__left--year">{{ series.startYear }} - {{ series.endYear }}</h5>
             <h4 class="body-content__left--creator">Creator</h4>
-            <p>Tom Brennan</p>
-            <p>Mike Del Mundo</p>
-            <p>Clayton Henry</p>
-            <p>Barry Kitson</p>
-            <p>Jelena Kevic Djurdjevic</p>
-            <p>Paul Tobin</p>
+            <p v-for="person in series.creators.items">{{ person.name }}</p>
           </div>
           <div class="body-content__right">
             <h2 class="body-content__right--title">Characters</h2>
