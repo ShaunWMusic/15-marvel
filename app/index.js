@@ -8,13 +8,13 @@ const app = new Vue({
   data() {
     return {
       series: null,
-      characters: [],
+      characters: null,
       comics: [],
     };
   },
 
   mounted() {
-    this.searchSeries('Spider');
+    this.searchSeries('Hulk');
   },
 
   methods: {
@@ -24,6 +24,7 @@ const app = new Vue({
           .then((data) => {
             this.series = data.data.results[0];
             this.searchCharacters(this.series);
+            this.searchComics(this.series);
           });
     },
 
@@ -32,7 +33,6 @@ const app = new Vue({
           .then((r) => r.json())
           .then((data) => {
             this.characters = data.data.results;
-            this.searchComics(this.characters);
           });
     },
 
@@ -40,7 +40,6 @@ const app = new Vue({
       fetch(`http://gateway.marvel.com/v1/public/series/${series.id}/comics?apikey=${apiKey}`)
           .then((r) => r.json())
           .then((data) => {
-            debugger;
             this.comics = data.data.results;
           });
     },
