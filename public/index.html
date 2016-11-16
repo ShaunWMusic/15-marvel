@@ -46,6 +46,7 @@
                   <img v-bind:src="character.thumbnail.path + '.' + character.thumbnail.extension" alt="" class="image">
                 </div>
                   <p>{{ comics.title }}</p>
+                  <button v-on:click="handle('ok')" class="read-more">Read More</button>
               </div>
 
             </div>
@@ -54,7 +55,10 @@
 
       </div>
     </section>
-  </div>
+    <template v-if="ok">
+      <p><a v-if="ok">X</a></p>
+    </div>
+  </template>
   <script src="/app.js" charset="utf-8"></script>
 </body>
 
