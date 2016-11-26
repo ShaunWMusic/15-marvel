@@ -10,10 +10,23 @@
 
 <body>
   <div class="full-page">
+
+    <div class="model" v-if="modalDescription">
+    <div class="modal__card">
+      <button class="modal__btn" v-on:click="hideModal" type="submit"><i class="fa fa-times" aria-hidden="true"></i></button>
+      <p v-html='modalDescription'></p>
+    </div>
+  </div>
+
+
     <section class="nav-bar">
       <div class="nav-bar__container">
       <div class="nav-bar__content">
           <h1 class="title">Marvel</h1>
+          <form class="nav__search" v-on:submit.prevent="searchSeries(searchTerm)">
+          <input type="text" placeholder="Search" class="nav__input" v-model="searchTerm">
+        </form>
+
       </div>
       </div>
     </section>
@@ -27,7 +40,7 @@
             <h3 class="body-content__left--title">{{ series.title }}</h3>
             <h5 class="body-content__left--year">{{ series.startYear }} - {{ series.endYear }}</h5>
             <h4 class="body-content__left--creator">Creator</h4>
-            <p v-for="person in series.creators.items">{{ person.name }}</p>
+            <p v-for="person in series.creators.items">{{ series.name }}</p>
           </div>
           <div class="body-content__right">
             <h2 class="body-content__right--title">Characters</h2>
@@ -45,8 +58,9 @@
                 <div class="grid-item__img">
                   <img v-bind:src="character.thumbnail.path + '.' + character.thumbnail.extension" alt="" class="image">
                 </div>
-                  <p>{{ comics.title }}</p>
-                  <button v-on:click="handle('ok')" class="read-more">Read More</button>
+                  <p>{{ character.title }}</p>
+
+                  <button v-on:click="showDescription" class="read-more">Read More</button>
               </div>
 
             </div>
@@ -55,10 +69,8 @@
 
       </div>
     </section>
-    <template v-if="ok">
-      <p><a v-if="ok">X</a></p>
-    </div>
-  </template>
+
+  </div>
   <script src="/app.js" charset="utf-8"></script>
 </body>
 
